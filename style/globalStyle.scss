@@ -1,0 +1,152 @@
+/*Main font*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+/*variables*/
+$colorWhite: #EBEBEB;
+$colorDark: #201E1E;
+$colorMain: #27282B;
+$colorAction: #55ec20;
+$spacingSmall: 4px;
+$spacingMedium: 8px;
+$spacingLarge: 16px;
+
+/*Body defaults*/
+body {
+  font-family: "Lato", sans-serif;
+  color:$colorWhite;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $colorMain;
+}
+
+/*Styling of the general layout incl. nav and footer*/
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: $colorMain;
+
+}
+
+.footerStyle {
+    padding: $spacingSmall;
+    height: 40px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: $spacingSmall;
+    margin-top: auto;
+    background-color: $colorDark;
+    color:$colorWhite;
+    align-items: start;
+    justify-content: center;
+    div{
+      p{
+        display: inline-block;
+        font-size: 0.8rem;
+          margin:0;
+          font-weight: 400;
+      }
+      b{
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: $colorAction;
+      }
+    }
+}
+
+select {
+  background-color: $colorDark;
+  color: $colorWhite;
+  min-width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: $spacingMedium;
+  padding-left: $spacingMedium;
+  padding-right: $spacingMedium;
+  margin-top:$spacingLarge
+}
+
+.settingsButton {
+  width: 24px;
+  display: grid;
+  align-self: end;
+  margin: 8px 8px 0 0;
+}
+
+.desktopSettingsButton {
+  width: 32px;
+  display: grid;
+  align-self: auto;
+  justify-self: end;
+  margin: $spacingLarge;
+}
+
+.desktopDashboardBtn {
+  width: 75px;
+  img{
+    width: -webkit-fill-available;
+  }
+  
+}
+
+.navbarStyle {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  text-align: center;
+  height: 8vh;
+  justify-content: flex-start;
+  background-color: #201E1E;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 4px;
+  img{
+    height: inherit;
+  }
+  a {
+    color: $colorWhite;
+    text-decoration: none;
+    transition: color 0.2s ease-in;
+  }
+
+  a:hover {
+    color: $colorAction;
+  }
+  a:active{
+    color: $colorAction;
+  }
+  .active {
+    color: $colorAction;
+  }
+}
+  .desktopNavbarStyle {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    text-align: center;
+    height: 8vh;
+    justify-content: flex-start;
+    background-color: #201E1E;
+    align-items: center;
+    font-size: 0.75rem;
+    padding: 4px;
+    img{
+      height: inherit;
+    }
+    a {
+      color: $colorWhite;
+      text-decoration: none;
+      transition: color 0.2s ease-in;
+    }
+  
+    a:hover {
+      color: $colorAction;
+    }
+    a:active{
+      color: $colorAction;
+    }
+    .active {
+      color: $colorAction;
+    }
+}

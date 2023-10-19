@@ -1,0 +1,37 @@
+{
+  "name": "Elpriser",
+  "short_name": "Elpriser",
+  "start_url": "./index.html",
+  "id": "./index.html",
+  "display": "standalone",
+  "background_color": "#2c2c2c",
+  "theme_color": "#f0f0f0",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/appIcons/ios/16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/appIcons/ios/32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/appIcons/windows11/Square44x44Logo.targetsize-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/appIcons/ios/120.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/appIcons/ios/144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}

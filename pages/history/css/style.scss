@@ -1,0 +1,71 @@
+ @import "../../../style/globalStyle.scss";
+
+.timeWrapper{
+    width: 80%;
+    margin:auto;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    display: flex;
+    gap: $spacingSmall;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: 4;
+    justify-content: center;
+}
+
+.timeContainer {
+    display: grid;
+    min-width: 300px;
+    gap: $spacingSmall;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0px 0px 4px 0px rgba(200, 200, 200, 0.2);
+    border-radius: 8px;
+    background-color: $colorDark;
+    p{
+        font-size: 1.2rem;
+        padding: $spacingMedium;
+        margin:0;
+    }
+}
+
+.calender {
+    width: 75%;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 0px rgba(200, 200, 200, 0.2);
+    background-color: #201E1E;
+    color: #EBEBEB;
+    min-width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: $spacingSmall;
+    padding-left: $spacingMedium;
+    padding-right: $spacingMedium;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.calender::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: grid;
+    align-items: center;
+    justify-self: center;
+    background: url("../../../assets/appIcons/calendar-days-solid.svg") no-repeat;
+    width: 14px;
+    height: 14px;
+    border-width: thin;
+}
+.calender:focus{
+    outline: solid 1px $colorAction;
+    border-color: $colorAction;
+}
+.errorText {
+    color: $colorAction;
+    text-align: center;
+}
+p{
+    font-size: 1rem;
+}
+b{
+    color: $colorDark;
+}

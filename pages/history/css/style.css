@@ -1,0 +1,169 @@
+/*Main font*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+/*variables*/
+/*Body defaults*/
+body {
+  font-family: "Lato", sans-serif;
+  color: #EBEBEB;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #27282B;
+}
+
+/*Styling of the general layout incl. nav and footer*/
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #27282B;
+}
+
+.footerStyle {
+  padding: 4px;
+  height: 40px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+  margin-top: auto;
+  background-color: #201E1E;
+  color: #EBEBEB;
+  align-items: start;
+  justify-content: center;
+}
+.footerStyle div p {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin: 0;
+  font-weight: 400;
+}
+.footerStyle div b {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #55ec20;
+}
+
+select {
+  background-color: #201E1E;
+  color: #EBEBEB;
+  min-width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 16px;
+}
+
+.settingsButton {
+  width: 24px;
+  display: grid;
+  align-self: end;
+  margin: 8px 8px 0 0;
+}
+
+.navbarStyle {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  text-align: center;
+  height: 8vh;
+  justify-content: flex-start;
+  background-color: #201E1E;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 4px;
+}
+.navbarStyle img {
+  height: inherit;
+}
+.navbarStyle a {
+  color: #EBEBEB;
+  text-decoration: none;
+  transition: color 0.2s ease-in;
+}
+.navbarStyle a:hover {
+  color: #55ec20;
+}
+.navbarStyle a:active {
+  color: #55ec20;
+}
+.navbarStyle .active {
+  color: #55ec20;
+}
+
+.timeWrapper {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10%;
+  margin-top: 10%;
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 4;
+  justify-content: center;
+}
+
+.timeContainer {
+  display: grid;
+  min-width: 300px;
+  gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0px 0px 4px 0px rgba(200, 200, 200, 0.2);
+  border-radius: 8px;
+  background-color: #201E1E;
+}
+.timeContainer p {
+  font-size: 1.2rem;
+  padding: 8px;
+  margin: 0;
+}
+
+.calender {
+  width: 75%;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px 0px rgba(200, 200, 200, 0.2);
+  background-color: #201E1E;
+  color: #EBEBEB;
+  min-width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.calender::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: grid;
+  align-items: center;
+  justify-self: center;
+  background: url("../../../assets/appIcons/calendar-days-solid.svg") no-repeat;
+  width: 14px;
+  height: 14px;
+  border-width: thin;
+}
+
+.calender:focus {
+  outline: solid 1px #55ec20;
+  border-color: #55ec20;
+}
+
+.errorText {
+  color: #55ec20;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+}
+
+b {
+  color: #201E1E;
+}/*# sourceMappingURL=style.css.map */
