@@ -21,12 +21,15 @@ if (_isDesktop){
 	document.location.href = "/pages/dashboard"
 }
 
-let { day, month, year } = getDate();
+let { day, month, year } = getDate(new Date());
 let { data } = await useFetch(
   `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day}_${area}.json`
 );
+console.log(day,month,year)
+console.log("Oversigts data", data)
 
-let { min, max } = getExtremes(data);
+let clone = [...data]
+let { min, max } = getExtremes(clone);
 
 let layoutContent = [
   newEl({ type: "h1", text: "OVERSIGT" }),
