@@ -4,11 +4,11 @@ import { registerSW } from "../clientServiceWorker.js";
 let _isDesktop = (window.onresize = getWindowSize());
 
 if (_isDesktop) {
-  document.location.href = "elpriser/pages/dashboard";
+  document.location.href = "/pages/dashboard";
 }
 
 if (!_isDesktop) {
-  document.location.href = "elpriser/pages/overview";
+  document.location.href = "/pages/overview";
 }
 
 if (!localStorage.getItem("area")) {
