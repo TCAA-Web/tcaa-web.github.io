@@ -9,12 +9,23 @@ import { getExtremes } from "../../javascript/helpers/getExtremes.js";
 import { getCurrentItem } from "../../javascript/helpers/getCurrentItem.js";
 import { createCircleLarge } from "../../javascript/layout/createCircleLarge.js";
 import { applyTax } from "../../javascript/helpers/applyTax.js";
+import { getWindowSize } from "../../javascript/helpers/getWindowSize.js";
 
 let { area } = getArea();
 
 if (!area) {
   document.location.href = "/";
 }
+
+function checkForSize(){
+  let isDesktop = getWindowSize()
+  if (!isDesktop){
+    document.location.href = "/pages/overview"
+  }
+
+}
+new ResizeObserver(() => checkForSize()).observe(document.getElementById("mainContainer"));
+
 
 async function calendarHandler(e) {
   document.querySelector("#selected").innerHTML =

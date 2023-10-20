@@ -10,8 +10,6 @@ if (!area) {
   document.location.href = "/";
 }
 let isDesktop = (window.onresize = getWindowSize());
-let checked = localStorage.getItem('tax')
-
 
 function selectHandler(e) {
   let area = e.target.value;

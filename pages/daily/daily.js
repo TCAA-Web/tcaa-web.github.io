@@ -14,11 +14,15 @@ if (!area){
     document.location.href ="/"
 }
 
-let _isDesktop = window.onresize = getWindowSize()
-
-if (_isDesktop){
-	document.location.href = "/pages/dashboard"
-}
+function checkForSize(){
+    let isDesktop = getWindowSize()
+    if (isDesktop){
+      document.location.href = "/pages/dashboard"
+    }
+  
+  }
+  new ResizeObserver(() => checkForSize()).observe(document.getElementById("mainContainer"));
+  
 
 async function getInitialData() {
     let {area, areaText} = getArea()

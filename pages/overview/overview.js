@@ -15,11 +15,15 @@ if (!area) {
   document.location.href = "/";
 }
 
-let _isDesktop = window.onresize = getWindowSize()
+function checkForSize(){
+  let isDesktop = getWindowSize()
+  if (isDesktop){
+    document.location.href = "/pages/dashboard"
+  }
 
-if (_isDesktop){
-	document.location.href = "/pages/dashboard"
 }
+new ResizeObserver(() => checkForSize()).observe(document.getElementById("mainContainer"));
+
 
 let { day, month, year } = getDate(new Date());
 let { data } = await useFetch(
