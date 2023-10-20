@@ -61,7 +61,7 @@ select {
   width: 24px;
   display: grid;
   align-self: end;
-  margin: 8px 8px 0 0;
+  margin: 12px 12px 0 0;
 }
 
 .desktopSettingsButton {
@@ -88,7 +88,7 @@ select {
   background-color: #201E1E;
   align-items: center;
   font-size: 0.75rem;
-  padding: 4px;
+  padding: 8px;
 }
 .navbarStyle img {
   height: inherit;
@@ -97,6 +97,7 @@ select {
   color: #EBEBEB;
   text-decoration: none;
   transition: color 0.2s ease-in;
+  margin-right: 4px;
 }
 .navbarStyle a:hover {
   color: #55ec20;
