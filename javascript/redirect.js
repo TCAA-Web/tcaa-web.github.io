@@ -13,9 +13,17 @@ if (!_isDesktop){
 if (!localStorage.getItem('area')){
     localStorage.setItem('area', 'DK1')
 }
+if (!localStorage.getItem('tax')){
+	localStorage.setItem('tax', false)
+}
+if (!localStorage.getItem('notifications')){
+	localStorage.setItem('notifications', false)
+}
 
+// Registers service worker
 if('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('../serviceworker.js')
 	.then(reg => console.log('service worker registered', reg))
 	.catch(err => console.error('service worker not registered', err)) 
 }
+

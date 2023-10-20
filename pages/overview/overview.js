@@ -7,6 +7,7 @@ import { getArea } from "../../javascript/helpers/getArea.js";
 import { createCircleSmall } from "../../javascript/layout/createCircleSmall.js";
 import { getExtremes } from "../../javascript/helpers/getExtremes.js";
 import { getWindowSize } from "../../javascript/helpers/getWindowSize.js";
+import { applyTax } from "../../javascript/helpers/applyTax.js";
 
 let { area } = getArea();
 
@@ -32,8 +33,8 @@ let layoutContent = [
   newEl({
     type: "div",
     append: [
-      createCircleSmall(min.DKK_per_kWh.toFixed(3), 'LAVESTE PRIS'),
-      createCircleSmall(max.DKK_per_kWh.toFixed(3), 'HØJESTE PRIS'),
+      createCircleSmall(applyTax(min.DKK_per_kWh).toFixed(3), 'LAVESTE PRIS'),
+      createCircleSmall(applyTax(max.DKK_per_kWh).toFixed(3), 'HØJESTE PRIS'),
     ],
     class: "circleContainer",
   }),

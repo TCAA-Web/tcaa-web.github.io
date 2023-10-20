@@ -8,13 +8,13 @@ import { createCircleSmall } from "../../javascript/layout/createCircleSmall.js"
 import { getExtremes } from "../../javascript/helpers/getExtremes.js";
 import { getCurrentItem } from "../../javascript/helpers/getCurrentItem.js";
 import { createCircleLarge } from "../../javascript/layout/createCircleLarge.js";
+import { applyTax } from "../../javascript/helpers/applyTax.js";
 
 let { area } = getArea();
 
 if (!area) {
   document.location.href = "/";
 }
-var setDate
 async function calendarHandler(e) {
   document.querySelector("#selected").innerHTML =
     "Valgt dato: " + e.target.value;
@@ -42,12 +42,12 @@ async function createDashboard (_data) {
 
       newEl({type: "div", append: [
         newEl({ type: "h1", text: "ELPRISEN LIGE NU" }),
-        createCircleLarge(currentItem[0].DKK_per_kWh.toFixed(3)),
+        createCircleLarge(applyTax(currentItem[0]).DKK_per_kWh.toFixed(3)),
         newEl({
           type: "div",
           append: [
-            createCircleSmall(min.DKK_per_kWh.toFixed(3), "LAVESTE PRIS"),
-            createCircleSmall(max.DKK_per_kWh.toFixed(3), "HØJESTE PRIS"),
+            createCircleSmall(applyTax(min.DKK_per_kWh).toFixed(3), "LAVESTE PRIS"),
+            createCircleSmall(applyTax(max.DKK_per_kWh).toFixed(3), "HØJESTE PRIS"),
           ],
           class: "circleContainer",
         }),
@@ -71,14 +71,14 @@ async function createDashboard (_data) {
         newEl({
           type: "input",
           text: "Click me",
-          attr: { name: "type", value: "date" },
+          attr: [{ name: "type", value: "date" }],
           event: { name: "change", func: calendarHandler },
           class: "calender",
         }),
         newEl({
           type: "p",
           text: `ELPRISERNE D. ${day}/${month}-${year}`,
-          attr: { name: "id", value: "selected" },
+          attr: [{ name: "id", value: "selected" }],
         }),
         _data || data ? createDataset(_data ? _data : data) : newEl({type: "p", text: "Kunne ikke finde"}),
       ]})

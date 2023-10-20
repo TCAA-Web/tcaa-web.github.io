@@ -6,6 +6,7 @@ import { getArea } from "../../javascript/helpers/getArea.js"
 import { createCircleLarge } from "../../javascript/layout/createCircleLarge.js"
 import { getCurrentItem } from "../../javascript/helpers/getCurrentItem.js"
 import { getWindowSize } from "../../javascript/helpers/getWindowSize.js"
+import { applyTax } from "../../javascript/helpers/applyTax.js"
 
 let {area} = getArea()
 
@@ -27,7 +28,7 @@ async function getInitialData() {
 
     createMainLayout([
         newEl({type: 'h1', text: 'ELPRISEN LIGE NU'}), 
-        createCircleLarge(currentItem[0].DKK_per_kWh.toFixed(3)),
+        createCircleLarge(applyTax(currentItem[0].DKK_per_kWh).toFixed(3)),
         newEl({type: 'p', text: `${new Date(currentItem[0].time_start).getHours() + ":00 - " + new Date(currentItem[0].time_end).getHours() + ":00"}`})
     ]
     )

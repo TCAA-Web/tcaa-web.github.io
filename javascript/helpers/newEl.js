@@ -27,7 +27,9 @@ export function newEl(options){
     if (options.html) el.innerHTML = options.html
     if (options.text) el.innerText = options.text
     if (options.class) el.classList.add(options.class)
-    if (options.attr) el.setAttribute(options.attr.name, options.attr.value)
+    if (options.attr) options.attr.map((option) => {
+        el.setAttribute(option.name, option.value)
+    }) 
     if (options.event) el.addEventListener(options.event.name, options.event.func)
     return el
 }

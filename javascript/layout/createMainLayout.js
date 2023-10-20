@@ -9,18 +9,18 @@ export function createMainLayout(_children) {
   main.classList.add("mainContainer");
   main.innerHTML = ""
   let _isDesktop = window.onresize = getWindowSize()
-
+ 
   if (_isDesktop){
     main.append(createNavbar());
     main.append(..._children);
-    main.append(createFooter('inkl.'))
+    main.append(createFooter())
   }
   if (!_isDesktop){
     // The main layout in order
     main.append(createNavbar(routes));
     main.append(createSettingsButton());
     main.append(..._children);
-    main.append(createFooter('inkl.'))
+    main.append(createFooter())
     return main
   }
   return main

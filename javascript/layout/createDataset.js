@@ -1,8 +1,9 @@
+import { applyTax } from "../helpers/applyTax.js";
 import { getMinMax } from "../helpers/getMinMax.js";
 import { newEl } from "../helpers/newEl.js";
-import { reset } from "../helpers/reset.js";
 
 export function createDataset(_arr) {
+
   function createFormattedHours(_hour) {
     let res;
     _hour < 10 ? (res = "0" + _hour + ".00") : (res = _hour + ".00");
@@ -29,7 +30,7 @@ export function createDataset(_arr) {
                         )}</p>
                         <p style="color:${getColor(
                           minMaxArray[index]
-                        )}">${item.DKK_per_kWh.toFixed(3)} kr</p>
+                        )}">${applyTax(item.DKK_per_kWh).toFixed(3)} kr</p>
                     </div>`;
       })
       .join("");

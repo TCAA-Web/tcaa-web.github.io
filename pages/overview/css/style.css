@@ -64,6 +64,21 @@ select {
   margin: 8px 8px 0 0;
 }
 
+.desktopSettingsButton {
+  width: 32px;
+  display: grid;
+  align-self: auto;
+  justify-self: end;
+  margin: 16px;
+}
+
+.desktopDashboardBtn {
+  width: 75px;
+}
+.desktopDashboardBtn img {
+  width: -webkit-fill-available;
+}
+
 .navbarStyle {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr 1fr;
@@ -90,6 +105,35 @@ select {
   color: #55ec20;
 }
 .navbarStyle .active {
+  color: #55ec20;
+}
+
+.desktopNavbarStyle {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  text-align: center;
+  height: 8vh;
+  justify-content: flex-start;
+  background-color: #201E1E;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 4px;
+}
+.desktopNavbarStyle img {
+  height: inherit;
+}
+.desktopNavbarStyle a {
+  color: #EBEBEB;
+  text-decoration: none;
+  transition: color 0.2s ease-in;
+}
+.desktopNavbarStyle a:hover {
+  color: #55ec20;
+}
+.desktopNavbarStyle a:active {
+  color: #55ec20;
+}
+.desktopNavbarStyle .active {
   color: #55ec20;
 }
 
