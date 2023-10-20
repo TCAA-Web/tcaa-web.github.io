@@ -1,14 +1,10 @@
 import { applyTax } from "../helpers/applyTax.js";
+import { createFormattedHours } from "../helpers/createFormattedHours.js";
 import { getMinMax } from "../helpers/getMinMax.js";
 import { newEl } from "../helpers/newEl.js";
 
 export function createDataset(_arr) {
 
-  function createFormattedHours(_hour) {
-    let res;
-    _hour < 10 ? (res = "0" + _hour + ".00") : (res = _hour + ".00");
-    return res;
-  }
   let minMaxArray = getMinMax(_arr.map((i) => i.DKK_per_kWh));
 
   // from this fiddle: https://jsfiddle.net/jongobar/sNKWK/

@@ -15,6 +15,7 @@ let { area } = getArea();
 if (!area) {
   document.location.href = "/";
 }
+
 async function calendarHandler(e) {
   document.querySelector("#selected").innerHTML =
     "Valgt dato: " + e.target.value;
@@ -39,10 +40,9 @@ async function createDashboard (_data) {
 
   createMainLayout([
     newEl({type: "section", append: [
-
       newEl({type: "div", append: [
         newEl({ type: "h1", text: "ELPRISEN LIGE NU" }),
-        createCircleLarge(applyTax(currentItem[0]).DKK_per_kWh.toFixed(3)),
+        createCircleLarge(applyTax(currentItem[0].DKK_per_kWh).toFixed(3)),
         newEl({
           type: "div",
           append: [

@@ -19,6 +19,7 @@ const limitCacheSize = (cacheName, numberOfAllowedFiles) => {
   });
 };
 
+// Ny sikkerheds foranstalning på response
 // Fra https://stackoverflow.com/questions/45434470/only-in-chrome-service-worker-a-redirected-response-was-used-for-a-reque
 function cleanResponse(response) {
   const clonedResponse = response.clone();
@@ -43,47 +44,50 @@ function cleanResponse(response) {
 // install event
 self.addEventListener("install", (event) => {
   console.log("Service Worker has been installed");
+  event.waitUntil(self.skipWaiting()); // Akriver service worker med det samme
 });
 
-// activate event 
+// activate event
 self.addEventListener("activate", (event) => {
   console.log("Service Worker has been activated");
+  event.waitUntil(self.clients.claim()); // Aktiver på ALLE sider
 });
 
+// lyt efter alle fetch events
 self.addEventListener(
   "fetch",
   (event) => {
-	// Efter fetch request
+    // Efter fetch request
     event.respondWith(
       (async () => {
-		// check om response findes i cache
-		const cachedResponse = await caches.match(event.request);
+        // check om response findes i cache
+        const cachedResponse = await caches.match(event.request);
 
         if (cachedResponse) {
-			// hvis response er redirected
+          // hvis response er redirected
           if (cachedResponse.redirected) {
-			// clean response (sikkerheds foranstaltning)
+            // clean response (sikkerheds foranstaltning)
             return cleanResponse(cachedResponse);
-			// ellers return response normalt
+            // ellers return response normalt
           } else {
             return cachedResponse;
           }
         }
 
         const response = await fetch(event.request);
+        // Hvis siden ikke findes så vis fallback siden
+        if (response.status == 404) {
+          const cache = await caches.open(staticCache);
+          const cachedResponse = await cache.match("/fallback.html");
+          return cachedResponse;
+        }
 
-		if (response.status == 404){
-			const cache = await caches.open(staticCache);
-			const cachedResponse = await cache.match("/fallback.html");
-			return cachedResponse;
-		}
-		
-		// ???
+        // ???
         if (!response || response.status !== 200 || response.type !== "basic") {
           return response;
         }
 
-		// hvis dynamisk cache er slået til "boolean" så åben cache og gem response
+        // hvis dynamisk cache er slået til "boolean" så åben cache og gem response
         if (ENABLE_DYNAMIC_CACHING) {
           const responseToCache = response.clone();
           const cache = await caches.open(dynamicCache);
@@ -97,6 +101,14 @@ self.addEventListener(
   // Kør limitCache size til maks 50 filer
   limitCacheSize(dynamicCache, 50)
 );
+
+// lyt efter message events
+self.addEventListener("message", function (event) {
+  console.log("Service Worker message event: " + JSON.stringify(event.data));
+  event.source.postMessage(event.data);
+});
+
+console.log("Service Worker initialized");
 
 // alle ikoner og statiske assets
 const staticAssets = [
@@ -117,6 +129,7 @@ caches.open(staticCache).then((cache) => {
 caches.open(staticCache).then((cache) => {
   cache.add("/");
   cache.add("/index.html");
+  cache.add("/pages/notifications.js");
   cache.add("/pages/daily/");
   cache.add("/pages/daily/index.html");
   cache.add("/pages/daily/daily.js");
@@ -135,6 +148,7 @@ caches.open(staticCache).then((cache) => {
   cache.add("/fallback.html");
   cache.add("/serviceworker.js");
   cache.add("/manifest.json");
-  cache.add("/javascript/fallback.js")
+  cache.add("/javascript/fallback.js");
   cache.add("/javascript/redirect.js");
+  cache.add("/clientServiceWorker.js");
 });

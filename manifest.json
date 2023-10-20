@@ -7,6 +7,26 @@
   "background_color": "#2c2c2c",
   "theme_color": "#f0f0f0",
   "orientation": "portrait-primary",
+  "description": "Få din daglige elpris i en nem og overskuelig oversigt",
+  "lang": "dk",
+  "categories": [
+    "prices",
+    "utilities"
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/narrow.PNG",
+      "type": "image/png",
+      "sizes": "378x667",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/assets/wide.PNG",
+      "type": "image/jpeg",
+      "sizes": "1610x786",
+      "form_factor": "wide"
+    }
+  ],
   "icons": [
     {
       "src": "/assets/appIcons/ios/16.png",

@@ -22,7 +22,7 @@ if (_isDesktop){
 }
 
 let { day, month, year } = getDate();
-let { data, error } = await useFetch(
+let { data } = await useFetch(
   `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day}_${area}.json`
 );
 

@@ -1,12 +1,3 @@
-/* export function newEl(_type, _html = "", _attr, _attrValue, _event, _func, _class){
-    let el = document.createElement(_type)
-    if (_html) el.innerHTML = _html
-    if (_class) el.classList.add(_class)
-    if (_attr && _attrValue) el.setAttribute(_attr, _attrValue)
-    if (_func && _event) el.addEventListener(_event, _func)
-    return el
-} */
-
 /**
  * Create a new HTML Element from these parameters
  * @param {Object} options

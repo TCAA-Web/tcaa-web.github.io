@@ -3,6 +3,7 @@ import { getWindowSize } from "../../javascript/helpers/getWindowSize.js";
 import { newEl } from "../../javascript/helpers/newEl.js";
 import { reset } from "../../javascript/helpers/reset.js";
 import { createMainLayout } from "../../javascript/layout/createMainLayout.js";
+import { requestNotificationPermission, showLocalNotification, registerSW, } from "../../clientServiceWorker.js";
 
 let { area } = getArea();
 if (!area) {
@@ -11,14 +12,24 @@ if (!area) {
 let isDesktop = (window.onresize = getWindowSize());
 let checked = localStorage.getItem('tax')
 
+
 function selectHandler(e) {
   let area = e.target.value;
   localStorage.setItem("area", area);
   reset();
   createMainLayout(layoutContent);
 }
-function handleChangeNotifications(e){
+
+async function handleChangeNotifications(e){
   localStorage.setItem('notifications', e.target.checked)
+  if (e.target.checked == true){
+    let request = await requestNotificationPermission()
+    if (request == 'granted'){
+      let swRegistration = await registerSW()
+      showLocalNotification('Besked fra Elprisen.nu', 'Du vil nu modtage en notifikation når el-prisen er lavest', swRegistration)
+    }
+    console.log(request)
+  }
 }
 function handleChangeTax(e) {
   console.log(e.target.checked);
