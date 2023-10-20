@@ -25,7 +25,6 @@ async function calendarHandler(e) {
   let { data, error } = await useFetch(
     `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day}_${area}.json`
   )
-  setDate = e.target.value
   createDashboard(data)
 };
 
