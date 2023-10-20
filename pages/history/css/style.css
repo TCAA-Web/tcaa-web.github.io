@@ -182,18 +182,17 @@ select {
   margin-bottom: 5%;
 }
 
-.calender::-webkit-calendar-picker-indicator {
-  color: rgba(0, 0, 0, 0);
-  opacity: 1;
-  display: grid;
-  align-items: center;
-  justify-self: center;
-  background: url("../../../assets/appIcons/calendar-days-solid.svg") no-repeat;
-  width: 14px;
-  height: 14px;
-  border-width: thin;
-}
-
+/* .calender::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: grid;
+    align-items: center;
+    justify-self: center;
+    background: url("../../../assets/appIcons/calendar-days-solid.svg") no-repeat;
+    width: 14px;
+    height: 14px;
+    border-width: thin;
+} */
 .calender:focus {
   outline: solid 1px #55ec20;
   border-color: #55ec20;

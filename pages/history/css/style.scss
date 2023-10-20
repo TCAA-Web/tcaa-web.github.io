@@ -44,7 +44,7 @@
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.calender::-webkit-calendar-picker-indicator {
+/* .calender::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
     display: grid;
@@ -54,7 +54,7 @@
     width: 14px;
     height: 14px;
     border-width: thin;
-}
+} */
 .calender:focus{
     outline: solid 1px $colorAction;
     border-color: $colorAction;
