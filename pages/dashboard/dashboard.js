@@ -34,15 +34,15 @@ async function calendarHandler(e) {
   let { year, month, day } = getDate(e.target.value);
   let { area, areaText } = getArea();
   let { data, error } = await useFetch(
-    `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day}_${area}.json`
-  )
+    `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day <= 9 ? '0'+day : day}_${area}.json`
+    )
   createDashboard(data)
 };
 
 async function createDashboard (_data) {
   let { day, month, year } = getDate();
   let { data, error } = await useFetch(
-    `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day}_${area}.json`
+    `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day <= 9 ? '0'+day : day}_${area}.json`
     );
  let currentItem = getCurrentItem(data);
 

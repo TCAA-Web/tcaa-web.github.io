@@ -29,7 +29,8 @@ async function calendarHandler(e) {
   let { year, month, day } = getDate(e.target.value);
   let { area, areaText } = getArea();
   let { data, error } = await useFetch(
-    `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day}_${area}.json`
+    `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day <= 9 ? '0'+day : day}_${area}.json`
+
   );
   if (data) {
     createMainLayout([
@@ -77,8 +78,8 @@ async function getInitialData() {
   let { area, areaText } = getArea();
   let { day, month, year } = getDate();
   let { data, error } = await useFetch(
-    `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day}_${area}.json`
-  );
+    `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day <= 9 ? '0'+day : day}_${area}.json`
+    );
   createMainLayout([
     newEl({ type: "h1", text: "HISTORIK" }),
     newEl({

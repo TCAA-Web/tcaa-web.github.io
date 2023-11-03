@@ -27,8 +27,8 @@ new ResizeObserver(() => checkForSize()).observe(document.getElementById("mainCo
 
 let { day, month, year } = getDate(new Date());
 let { data } = await useFetch(
-  `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day}_${area}.json`
-);
+  `https://www.elprisenligenu.dk/api/v1/prices/${year}/${month}-${day <= 9 ? '0'+day : day}_${area}.json`
+  );
 console.log(day,month,year)
 console.log("Oversigts data", data)
 

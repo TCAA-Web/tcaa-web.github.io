@@ -44,7 +44,7 @@ function cleanResponse(response) {
 // install event
 self.addEventListener("install", (event) => {
   console.log("Service Worker has been installed");
-  event.waitUntil(self.skipWaiting()); // Akriver service worker med det samme
+  event.waitUntil(self.skipWaiting()); // Aktiver service worker med det samme
 });
 
 // activate event
@@ -62,7 +62,6 @@ self.addEventListener(
       (async () => {
         // check om response findes i cache
         const cachedResponse = await caches.match(event.request);
-
         if (cachedResponse) {
           // hvis response er redirected
           if (cachedResponse.redirected) {
@@ -75,6 +74,7 @@ self.addEventListener(
         }
 
         const response = await fetch(event.request);
+        
         // Hvis siden ikke findes så vis fallback siden
         if (response.status == 404) {
           const cache = await caches.open(staticCache);

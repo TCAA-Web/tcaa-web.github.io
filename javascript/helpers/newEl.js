@@ -20,7 +20,7 @@ export function newEl(options){
     if (options.class) el.classList.add(options.class)
     if (options.attr) options.attr.map((option) => {
         el.setAttribute(option.name, option.value)
-    }) 
+    })
     if (options.event) el.addEventListener(options.event.name, options.event.func)
     return el
 }

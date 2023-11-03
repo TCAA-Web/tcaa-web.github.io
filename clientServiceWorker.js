@@ -1,4 +1,5 @@
 export async function registerSW() {
+  
   let sw = undefined;
   // hvis serviceworker er understøttet så registrer SW.
   if ("serviceWorker" in navigator) {
